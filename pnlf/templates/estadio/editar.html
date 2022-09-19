@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}
+{% block title %}Editar Estadio - PNLF{% endblock %}
+{% block body %}
+<div class="row justify-content-center">
+  <div class="col-md-3">
+    <h4>Editar Estadio</h4>
+    <form method="post">
+    {% csrf_token %}
+    {% if form %}
+      {% for input in form %}
+      <div class="from-group">
+        <label>{{ input.label }}</label>
+        {{ input }}
+      </div>
+      {% endfor %}
+    {% endif %}
+      <div class="form-group">
+        <input type="submit" value="Editar" class="btn btn-secondary form-control">
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
